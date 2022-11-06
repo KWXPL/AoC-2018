@@ -1,52 +1,43 @@
 ﻿#include <iostream>
+#include <vector>
 #include <fstream>
-#include <string>
-
-using namespace std;
 
 int main()
 {
-	int frequency = 0;
-	int number;
-	int *tab;
-	int i = 0;
-	string mark;
-	string line;
-	ifstream file;
+	int tmp = 0;
+	int data;
 
-	tab = new int[1000];
+	std::vector <int> inputData;
+	std::vector <int> frequency;
+	std::ifstream input{ "Dane1.txt" };
 
-	file.open("Dane1.txt", ios::in);
-
-	if (!file.good())
-		cout << "File do not exist";
+	while (input >> data)
+	{
+		inputData.push_back(data);
+	}
 
 	while (true)
 	{
-		while (getline(file, line))
+		for (size_t i = 0; i < inputData.size(); i++)
 		{
-			cout << "line: " << line << endl;
-			mark = line.substr(0, 1);
-			number = stoi(line.substr(1, line.length()));
-			if (mark == "+")
+			tmp += inputData[i];
+			frequency.push_back(tmp);
+			for (size_t j = 0; j < frequency.size(); j++)
 			{
-				frequency = frequency + number;
-
+				if (j > 0)
+				{
+					if (tmp == frequency[j - 1])
+					{
+						std::cout << "frequency: " << tmp << "\n";
+						std::cout << "i:" << i << "\n";
+						std::cout << "j:" << j << "\n";
+						goto exit;
+					}
+				}
 			}
-			else
-			{
-				frequency = frequency - number;
-			}
-
-			for (int x = 0; x < i; x++)
-			{
-
-			}
-			i++;
+			
 		}
-		file.clear();
-		file.seekg(0);
 	}
-	
-	cout << "frequency: " << frequency << endl;
+exit:
+	return 0;
 }
