@@ -48,20 +48,24 @@ int main()
 	std::string tmp;
 
 	std::vector <std::string> inputData;
-	std::ifstream input{ "Dane1.txt" };
+	std::ifstream input{ "dane.txt" };
 
 	while (input >> data)
 	{
+		std::cout << "pobieranie danych" << '\n';
 		inputData.push_back(data);
 	}
 
+	std::cout << "liczenie" << '\n';
+
 	for (unsigned i = 0; i < inputData.size(); i++)
 	{
+		std::cout << "i = " << i << '\n';
 		tmp = inputData[i];
 		tmp = sort(tmp);
 		int x = 0;
 		std::vector <int> lettersInWord;
-		for (int j = 1; j < tmp.size(); j++)
+		for (unsigned j = 1; j < tmp.size(); j++)
 		{
 			if (tmp[j] == tmp[j - 1])
 			{
@@ -74,6 +78,6 @@ int main()
 		}
 		findLetters(lettersInWord);
 	}
-	cout << 
+	std::cout << "Checksum = " << twoLetterWord * threeLetterWord;
 	return 0;
 }
