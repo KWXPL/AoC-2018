@@ -52,7 +52,6 @@ int main()
 
 	while (input >> data)
 	{
-		std::cout << "pobieranie danych" << '\n';
 		inputData.push_back(data);
 	}
 
