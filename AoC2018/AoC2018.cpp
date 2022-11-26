@@ -8,9 +8,9 @@ int threeLetterWord = 0;
 
 std::string sort(std::string input)
 {
-	for (int i = 0; i < input.size(); i++)
+	for (unsigned i = 0; i < input.size(); i++)
 	{
-		for (int j = i + 1; j < input.size(); j++)
+		for (unsigned j = i + 1; j < input.size(); j++)
 		{
 			if (input[i] > input[j])
 			{
@@ -27,7 +27,7 @@ void findLetters(std::vector <int> lettersInWord)
 {
 	bool hasTwo = false;
 	bool hasThree = false;
-	for (int i = 0; i < lettersInWord.size(); i++)
+	for (unsigned i = 0; i < lettersInWord.size(); i++)
 	{
 		if (lettersInWord[i] == 2 && !hasTwo)
 		{
@@ -55,7 +55,7 @@ int main()
 		inputData.push_back(data);
 	}
 
-	for (int i = 0; i < inputData.size(); i++)
+	for (unsigned i = 0; i < inputData.size(); i++)
 	{
 		tmp = inputData[i];
 		tmp = sort(tmp);
