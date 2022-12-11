@@ -52,6 +52,7 @@ int main()
 
 	while (input >> data)
 	{
+		std::cout << "liczenie" << '\n';
 		inputData.push_back(data);
 	}
 
