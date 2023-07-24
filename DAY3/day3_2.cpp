@@ -39,19 +39,13 @@ int main() {
             w_max = y + w;
     }
 
-    const unsigned int s_maxC = s_max;
-    const unsigned int w_maxC = w_max;
-
-    cout << "s_maxC = " << s_maxC << "\n";
-    cout << "w_maxC = " << w_maxC << "\n";
-
     int** obszar = new int*[s_max];
     for (unsigned int i = 0; i < s_max; ++i) {
         obszar[i] = new int[w_max];
     }
 
-    for (unsigned int i = 0; i < s_maxC; i++) {
-        for (unsigned int j = 0; j < w_maxC; j++) {
+    for (unsigned int i = 0; i < s_max; i++) {
+        for (unsigned int j = 0; j < w_max; j++) {
             obszar[i][j] = 0;
         }  
     }

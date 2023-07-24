@@ -38,52 +38,32 @@ int main() {
             w_max = y + w;
     }
 
-    const unsigned int s_maxC = s_max;
-    const unsigned int w_maxC = w_max;
-
-    cout << "s_maxC = " << s_maxC << "\n";
-    cout << "w_maxC = " << w_maxC << "\n";
-
     int** obszar = new int*[s_max];
     for (unsigned int i = 0; i < s_max; ++i) {
         obszar[i] = new int[w_max];
     }
 
-    for (unsigned int i = 0; i < s_maxC; i++) {
-        for (unsigned int j = 0; j < w_maxC; j++) {
+    for (unsigned int i = 0; i < s_max; i++) {
+        for (unsigned int j = 0; j < w_max; j++) {
             obszar[i][j] = 0;
         }  
     }
 
     for (unsigned int i = 0; i < zObszary.size(); i++) {
-        // cout << zObszary[i].id << "\n";
-        // cout << "\n";
         for (unsigned int j = zObszary[i].x; j < zObszary[i].x + zObszary[i].s; j++) {
             for (unsigned int k = zObszary[i].y; k < zObszary[i].y + zObszary[i].w; k++) {
                 obszar[j][k] += 1;
             }  
         }
-
-        // for (unsigned int i = 0; i < s_maxC; i++) {
-        //     for (unsigned int j = 0; j < w_maxC; j++) {
-        //         cout << obszar[i][j];
-        //     }  
-        //     cout << "\n";
-        // }
-        // cout << "\n";
-        // cout << "\n";
     }
 
-    for (unsigned int i = 0; i < s_maxC; i++) {
-        for (unsigned int j = 0; j < w_maxC; j++) {
-            cout << obszar[i][j];
+    for (unsigned int i = 0; i < s_max; i++) {
+        for (unsigned int j = 0; j < w_max; j++) {
             if (obszar[i][j] > 1) {
                 zduplikowanyObszar += 1;
             }
         }  
-        cout << "\n";
     }
-
 
     cout << "zduplikowanyObszar = " << zduplikowanyObszar;
 
